@@ -1,0 +1,48 @@
+/* Hide default cursor */
+* {
+    cursor: none !important;
+}
+
+/* Hello Kitty Custom Cursor */
+.hello-kitty-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-8px, -8px);
+    /* Adjust based on cursor hotspot */
+    transition: transform 0.1s ease-out;
+}
+
+.cursor-image {
+    width: 24px;
+    /* Reduced from default size */
+    height: 24px;
+    /* Reduced from default size */
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Hovering State - slightly larger */
+.hello-kitty-cursor.hovering .cursor-image {
+    width: 28px;
+    height: 28px;
+}
+
+/* Mobile - Show default cursor */
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important;
+    }
+
+    .hello-kitty-cursor {
+        display: none;
+    }
+}
+
+/* Ensure buttons and links still show they're clickable */
+button,
+a,
+.clickable {
+    cursor: none !important;
+}
